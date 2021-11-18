@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+
+:root {
+  --primary: #032541;
+  --secondary: #21d07a;
+  --white: #fff;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  color: #fff;
+  border-radius: 100px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  line-height: 1.1;
+  cursor: pointer;
+}
+
+.btn-error {
+  padding: 10px 15px;
+  background-color: red;
+  color: #fff;
+  border-radius: 100px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  line-height: 1.1;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+input:focus {
+  outline: none;
+}
+
+header {
+  background-color: #2f4d8f;
+}
+
+header .inner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+header a {
+  color: var(--white);
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+header a:hover {
+  opacity: 0.7;
+}
+
+header .brand a {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+header .nav-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+header .nav-links li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+header .nav-links li:last-child {
+  margin-right: 0;
+}
+
+.movie-content {
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.movie-content .input-wrapper input {
+  width: 100%;
+  background-color: var(--primary);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: var(--white);
+  font-size: 1.25rem;
+}
+
+.no-movies {
+  color: #000;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  color: inherit;
+  width: calc(33% - 2rem);
+  min-width: calc(33% - 2rem);
+  height: 400px;
+  min-height: 400px;
+  perspective: 1000px;
+  margin: 1rem;
+  position: relative;
+  -webkit-transition: transform 0.6s;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.frontWeb {
+  cursor: pointer;
+  background-size: cover;
+  padding: 2rem;
+  font-size: 1.62rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+.frontWeb:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  opacity: 0.25;
+  z-index: -1;
+}
+
+.frontWeb,
+.back {
+  display: flex;
+  border-radius: 6px;
+  background-position: center;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+}
+
+.card:nth-child(even) .back {
+  transform: rotateY(180deg);
+}
+
+.back {
+  background: #fff;
+  padding: 0 2em;
+  transform: rotateY(-180deg);
+}
+
+.release_date {
+  font-weight: bold;
+}
+
+.release_date span {
+  font-weight: normal;
+}
+
+.movie_gens {
+  font-size: 12.5px;
+}
+
+.overview {
+  font-size: 12.5px;
+  height: 260px;
+  width: 100%;
+  overflow: auto;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.card:nth-child(even):hover .frontWeb {
+  transform: rotateY(-180deg);
+}
+
+.card:nth-child(even):hover .back {
+  transform: rotateY(0deg);
+}
+
+.card:hover .frontWeb {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
+}
